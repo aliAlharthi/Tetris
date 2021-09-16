@@ -1,0 +1,43 @@
+#include "MENU.H"
+#include "INPUT.H"
+
+int titleMenu()
+{
+    enum Menu location;
+
+    int cursor = startGame;
+
+    while(1)
+    {
+	printf("%d\n", cursor);
+
+        if(kbhit())
+        {
+            switch(getch())
+            {
+                case UP:
+                    if(cursor > 0)
+                    {
+                        cursor--;
+                    }
+                    break;
+
+                case DOWN:
+                    if(cursor < 2)
+                    {
+                        cursor++;
+                    }
+
+                    break;
+
+                case ENTER:
+                    if(cursor == quitGame)
+                    {
+                    exit(0);
+                    }
+                    return location;
+                  
+            }
+        }
+    }
+}
